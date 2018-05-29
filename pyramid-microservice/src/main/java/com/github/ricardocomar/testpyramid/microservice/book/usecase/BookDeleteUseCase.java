@@ -6,20 +6,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.github.ricardocomar.testpyramid.microservice.book.mapper.BookEntityMapper;
-import com.github.ricardocomar.testpyramid.microservice.book.model.Book;
 import com.github.ricardocomar.testpyramid.microservice.book.repository.BookRepository;
 
 @Repository
 @Transactional
 @AllArgsConstructor
-public class BookCreateUseCase {
+public class BookDeleteUseCase {
 
 	@Autowired
 	private BookRepository bookRepository;
 
-	public Book create(Book book) {
-		return BookEntityMapper.from(bookRepository.save(BookEntityMapper.from(book)));
+	public void delete(long id) {
+		bookRepository.deleteById(id);
 	}
 
 }

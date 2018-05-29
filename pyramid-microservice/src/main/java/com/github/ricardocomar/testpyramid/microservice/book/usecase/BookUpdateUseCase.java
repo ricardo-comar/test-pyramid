@@ -9,17 +9,19 @@ import org.springframework.transaction.annotation.Transactional;
 import com.github.ricardocomar.testpyramid.microservice.book.mapper.BookEntityMapper;
 import com.github.ricardocomar.testpyramid.microservice.book.model.Book;
 import com.github.ricardocomar.testpyramid.microservice.book.repository.BookRepository;
+import com.github.ricardocomar.testpyramid.microservice.book.repository.entity.BookEntity;
 
 @Repository
 @Transactional
 @AllArgsConstructor
-public class BookCreateUseCase {
+public class BookUpdateUseCase {
 
 	@Autowired
 	private BookRepository bookRepository;
 
-	public Book create(Book book) {
-		return BookEntityMapper.from(bookRepository.save(BookEntityMapper.from(book)));
+	public Book update(Book book) {
+		BookEntity savedBook = bookRepository.save(BookEntityMapper.from(book));
+		return BookEntityMapper.from(savedBook);
 	}
 
 }
