@@ -19,6 +19,7 @@ import com.github.ricardocomar.testpyramid.frontend.PyramidFrontEndApplication;
 import com.github.ricardocomar.testpyramid.frontend.client.BookService;
 import com.github.ricardocomar.testpyramid.frontend.client.model.BookPojo;
 import com.github.ricardocomar.testpyramid.frontend.model.Book;
+import com.github.ricardocomar.testpyramid.frontend.usecase.BookCreateUseCase;
 
 @RunWith(SpringRunner.class)
 @ContextConfiguration(classes = {ActionConfiguration.class})
@@ -28,7 +29,7 @@ import com.github.ricardocomar.testpyramid.frontend.model.Book;
 public class BookCreateActionTest {
 
 	@Autowired
-	BookCreateAction action;
+	BookCreateUseCase action;
 	
 	@Autowired
 	BookService mockService;

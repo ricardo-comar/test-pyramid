@@ -1,4 +1,4 @@
-package com.github.ricardocomar.testpyramid.frontend.action;
+package com.github.ricardocomar.testpyramid.frontend.usecase;
 
 import lombok.AllArgsConstructor;
 
@@ -11,7 +11,7 @@ import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 
 @Component
 @AllArgsConstructor
-public class BookDeleteAction {
+public class BookDeleteUseCase {
 
 	@Autowired
 	private BookService service;

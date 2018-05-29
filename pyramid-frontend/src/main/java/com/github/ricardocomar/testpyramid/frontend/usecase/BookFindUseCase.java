@@ -1,4 +1,4 @@
-package com.github.ricardocomar.testpyramid.frontend.action;
+package com.github.ricardocomar.testpyramid.frontend.usecase;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -15,7 +15,7 @@ import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 
 @Component
 @AllArgsConstructor
-public class BookFindAction {
+public class BookFindUseCase {
 
 	@Autowired
 	private BookService service;
@@ -25,13 +25,17 @@ public class BookFindAction {
 		return BookPojoMapper.from(service.find(id));
 	}
 	
-	@HystrixCommand(groupKey = "findAction", fallbackMethod = "errorFind")
+	public Book errorFind(Book book) {
+		return null;
+	}
+	
+	@HystrixCommand(groupKey = "findAction", fallbackMethod = "errorFindPage")
 	public List<Book> find(Integer first, Integer maxResult) {
 		return service.find(first, maxResult).stream().map(b -> BookPojoMapper.from(b))
 				.collect(Collectors.toList());
 	}
 	
-	public Book errorFind(Book book) {
+	public Book errorFindPage(Book book) {
 		return null;
 	}
 	

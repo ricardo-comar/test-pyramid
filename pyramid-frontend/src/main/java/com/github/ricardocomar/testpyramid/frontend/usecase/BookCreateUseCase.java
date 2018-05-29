@@ -1,4 +1,4 @@
-package com.github.ricardocomar.testpyramid.frontend.action;
+package com.github.ricardocomar.testpyramid.frontend.usecase;
 
 import lombok.AllArgsConstructor;
 
@@ -12,19 +12,18 @@ import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 
 @Component
 @AllArgsConstructor
-public class BookUpdateAction {
+public class BookCreateUseCase {
 
 	@Autowired
 	private BookService service;
 	
-	@HystrixCommand(groupKey = "updateAction", fallbackMethod = "errorUpdate")
-	public boolean save(Book book) {
-		service.update(book.getId(), BookPojoMapper.from(book));
-		return true;
+	@HystrixCommand(groupKey = "saveAction", fallbackMethod = "errorSave")
+	public Book save(Book book) {
+		return BookPojoMapper.from(service.create(BookPojoMapper.from(book)).getBody());
 	}
 	
-	public boolean errorSave(Book book) {
-		return false;
+	public Book errorSave(Book book) {
+		return null;
 	}
 	
 	
