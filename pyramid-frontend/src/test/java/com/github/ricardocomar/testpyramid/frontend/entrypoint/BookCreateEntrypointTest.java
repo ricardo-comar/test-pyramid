@@ -27,9 +27,6 @@ import com.github.tomakehurst.wiremock.junit.WireMockRule;
 @ContextConfiguration(classes = { EntrypointConfiguration.class })
 @DirtiesContext
 @SpringBootTest(classes = PyramidFrontEndApplication.class)
-// @AutoConfigureStubRunner(ids =
-// {"com.github.ricardocomar.testpyramid.frontend:pyramid-microservices:+:stubs:8090"},
-// stubsMode = StubRunnerProperties.StubsMode.LOCAL)
 @ActiveProfiles("entrypoint")
 public class BookCreateEntrypointTest {
 
@@ -48,11 +45,11 @@ public class BookCreateEntrypointTest {
 			.writter("John Snow").price(120.0).build();
 	final Book created = Book.builder().id(123L).name("John's thoughts")
 			.writter("John Snow").price(120.0).build();
+	
 	final ObjectMapper objectMapper = new ObjectMapper();
 
 	@Before
 	public void setup() {
-		// RestAssuredMockMvc.standaloneSetup(entrypoint);
 		this.mockMvc = MockMvcBuilders.webAppContextSetup(wac).build();
 	}
 

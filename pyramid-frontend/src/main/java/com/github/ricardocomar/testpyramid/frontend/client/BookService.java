@@ -3,6 +3,7 @@ package com.github.ricardocomar.testpyramid.frontend.client;
 import java.util.List;
 
 import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -21,7 +22,7 @@ public interface BookService {
 	public ResponseEntity<BookPojo> create(@RequestBody BookPojo book);
 
 	@RequestMapping(value = "{id}", method = RequestMethod.GET)
-	@Headers("Content-Type: application/json;charset=UTF-8")
+	@Headers("Content-Type: " + MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public BookPojo find(@PathVariable("id") long id);
 
 	@RequestMapping(method = RequestMethod.GET)
