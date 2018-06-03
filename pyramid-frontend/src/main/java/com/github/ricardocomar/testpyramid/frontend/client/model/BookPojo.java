@@ -1,10 +1,12 @@
 package com.github.ricardocomar.testpyramid.frontend.client.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
-@Builder
+@Builder @NoArgsConstructor @AllArgsConstructor
 public class BookPojo {
 
 	private Long id;

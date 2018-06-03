@@ -25,7 +25,7 @@ import com.github.ricardocomar.testpyramid.frontend.usecase.BookCreateUseCase;
 @ContextConfiguration(classes = {ActionConfiguration.class})
 @DirtiesContext
 @SpringBootTest(classes = PyramidFrontEndApplication.class)
-@ActiveProfiles({"dev", "mock"})
+@ActiveProfiles("service")
 public class BookCreateActionTest {
 
 	@Autowired
