@@ -131,7 +131,7 @@
 				<configuration>
 					
 					<!-- We want to pick contracts from a Git repository -->
-					<contractsRepositoryUrl>https://github.com/mycelo/contract_git.git</contractsRepositoryUrl>
+					<contractsRepositoryUrl>git://https://github.com/mycelo/contract_git.git</contractsRepositoryUrl>
 					<!-- Example of URL via git protocol -->
 					<!--<contractsRepositoryUrl>git://git@github.com:spring-cloud-samples/spring-cloud-contract-samples.git</contractsRepositoryUrl> -->
 					<!-- Example of URL via http protocol -->
