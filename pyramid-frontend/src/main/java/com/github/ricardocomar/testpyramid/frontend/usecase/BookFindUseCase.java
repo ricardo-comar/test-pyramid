@@ -25,7 +25,7 @@ public class BookFindUseCase {
 		return BookPojoMapper.from(service.find(id));
 	}
 	
-	public Book errorFind(Book book) {
+	public Book errorFind(Long id) {
 		return null;
 	}
 	
@@ -35,7 +35,7 @@ public class BookFindUseCase {
 				.collect(Collectors.toList());
 	}
 	
-	public Book errorFindPage(Book book) {
+	public Book errorFindPage(Integer first, Integer maxResult) {
 		return null;
 	}
 	

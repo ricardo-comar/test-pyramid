@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Main Page</title>
+</head>
+<body ng-app="demo">
+<hr/>
+<div class="container" ng-controller="BookController">
+    <div class="row">
+        <label>Name</label> <input type="text" ng-model="bookDto.name" class="input-sm spacing"/>
+        <label>Writter</label> <input type="text" ng-model="bookDto.writter" class="input-sm spacing"/>
+        <label>Price</label> <input type="text" ng-model="bookDto.price" class="input-sm spacing"/>
+        <button ng-click="saveBook()" class="btn btn-sm btn-info">Save Book</button>
+    </div>
+    <hr/>
+    <div class="row">
+        <p>{{allBooks | json}}</p>
+    </div>
+    <hr/>
+    <div class="row" ng-repeat="user in allBooks">
+        <div class="">
+            <h3>{{book.name}}</h3>
+            <h4>{{book.writter}}</h4>
+            <h5>R$ {{book.price}}</h5>
+        </div>
+    </div>
+</div>
+</body>
+<script src="js/lib/angular.min.js"></script>
+<script src="js/lib/ui-bootstrap-tpls-2.5.0.min.js"></script>
+<script src="js/app/app.js"></script>
+<script src="js/app/BookController.js"></script>
+<script src="js/app/BookService.js"></script>
+<link rel="stylesheet" href="css/lib/bootstrap.min.css"/>
+<link rel="stylesheet" href="css/app/app.css"/>
+</html>

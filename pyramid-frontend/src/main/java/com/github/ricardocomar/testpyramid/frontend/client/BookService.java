@@ -19,16 +19,16 @@ public interface BookService {
 	public ResponseEntity<BookPojo> create(@RequestBody BookPojo book);
 
 	@RequestMapping(value = "{id}", method = RequestMethod.GET)
-	public BookPojo find(@PathVariable long id);
+	public BookPojo find(@PathVariable("id") long id);
 
 	@RequestMapping(method = RequestMethod.GET)
 	public List<BookPojo> find(@RequestParam("start") Integer first,
 			@RequestParam("maxResult") Integer maxResult);
 
 	@RequestMapping(value = "{id}", method = RequestMethod.PUT)
-	public ResponseEntity<Void> update(@PathVariable long id,
+	public ResponseEntity<Void> update(@PathVariable("id") long id,
 			@RequestBody BookPojo post);
 
 	@RequestMapping(value = "{id}", method = RequestMethod.DELETE)
-	public ResponseEntity<Void> delete(@PathVariable long id);
+	public ResponseEntity<Void> delete(@PathVariable("id") long id);
 }
