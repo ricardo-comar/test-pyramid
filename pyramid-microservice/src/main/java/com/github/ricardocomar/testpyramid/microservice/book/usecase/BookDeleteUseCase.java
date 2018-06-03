@@ -10,10 +10,10 @@ import lombok.AllArgsConstructor;
 public class BookDeleteUseCase {
 
 	@Autowired
-	private DeleteUserGateway deleteUserGateway;
+	private BookDeleteGateway deleteGateway;
 
 	public void delete(long id) {
-		deleteUserGateway.delete(id);
+		deleteGateway.delete(id);
 	}
 
 }

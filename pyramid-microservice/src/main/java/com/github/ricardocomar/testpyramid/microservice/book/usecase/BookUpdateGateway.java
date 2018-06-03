@@ -3,8 +3,8 @@ package com.github.ricardocomar.testpyramid.microservice.book.usecase;
 import com.github.ricardocomar.testpyramid.microservice.book.model.Book;
 
 
-public interface CreateUserGateway {
+public interface BookUpdateGateway {
 
-	Book save(Book book);
+	Book update(Book book);
 
 }

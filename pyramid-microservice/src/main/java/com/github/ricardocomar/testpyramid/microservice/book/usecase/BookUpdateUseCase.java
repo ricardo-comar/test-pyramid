@@ -12,10 +12,10 @@ import lombok.AllArgsConstructor;
 public class BookUpdateUseCase {
 
 	@Autowired
-	private UpdateUserGateway updateUserGateway;
+	private BookUpdateGateway updateGateway;
 
 	public Book update(Book book) {
-		return updateUserGateway.update(book);
+		return updateGateway.update(book);
 	}
 
 }

@@ -14,14 +14,14 @@ import lombok.AllArgsConstructor;
 public class BookFindUseCase {
 
 	@Autowired
-	private FindUserGateway findUserGateway;
+	private BookFindGateway findGateway;
 
 	public Book find(long id) {
-		return findUserGateway.find(id);
+		return findGateway.find(id);
 	}
 
 	public List<Book> find(int first, int maxResult) {
-		return findUserGateway.find(first, maxResult);
+		return findGateway.find(first, maxResult);
 	}
 
 }

@@ -8,20 +8,21 @@ import com.github.ricardocomar.testpyramid.microservice.book.mapper.BookEntityMa
 import com.github.ricardocomar.testpyramid.microservice.book.model.Book;
 import com.github.ricardocomar.testpyramid.microservice.book.repository.BookRepository;
 import com.github.ricardocomar.testpyramid.microservice.book.repository.entity.BookEntity;
-import com.github.ricardocomar.testpyramid.microservice.book.usecase.UpdateUserGateway;
+import com.github.ricardocomar.testpyramid.microservice.book.usecase.BookUpdateGateway;
 
 
 @Component
 @Transactional
-public class UpdateUserDataProvider implements UpdateUserGateway {
+public class BookUpdateDataProvider implements BookUpdateGateway {
 
 	@Autowired
 	private BookRepository bookRepository;
 	
 	@Override
 	public Book update(Book book) {
-		BookEntity savedBook = bookRepository.save(BookEntityMapper.from(book));
-		return BookEntityMapper.from(savedBook);
+		BookEntity entity = BookEntityMapper.from(book);
+		BookEntity saved = bookRepository.save(entity);
+		return BookEntityMapper.from(saved);
 	}
 
 }

@@ -1,6 +1,7 @@
 package com.github.ricardocomar.testpyramid.microservice.book.dataprovider;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,11 +12,12 @@ import org.springframework.transaction.annotation.Transactional;
 import com.github.ricardocomar.testpyramid.microservice.book.mapper.BookEntityMapper;
 import com.github.ricardocomar.testpyramid.microservice.book.model.Book;
 import com.github.ricardocomar.testpyramid.microservice.book.repository.BookRepository;
-import com.github.ricardocomar.testpyramid.microservice.book.usecase.FindUserGateway;
+import com.github.ricardocomar.testpyramid.microservice.book.repository.entity.BookEntity;
+import com.github.ricardocomar.testpyramid.microservice.book.usecase.BookFindGateway;
 
 @Repository
 @Transactional
-public class FindUserDataProvider implements FindUserGateway {
+public class BookFindDataProvider implements BookFindGateway {
 
 	@Autowired
 	private BookRepository bookRepository;
@@ -23,13 +25,14 @@ public class FindUserDataProvider implements FindUserGateway {
 	@Override
 	public List<Book> find(int first, int maxResult) {
 		return bookRepository.findAll(PageRequest.of(first, maxResult))
-				.stream().map(b -> BookEntityMapper.from(b))
+				.stream().map(entity -> BookEntityMapper.from(entity))
 				.collect(Collectors.toList());
 	}
 
 	@Override
 	public Book find(long id) {
-		return BookEntityMapper.from(bookRepository.findById(id).get());
+		Optional<BookEntity> optional = bookRepository.findById(id);
+		return BookEntityMapper.from(optional.get());
 	}
 
 }

@@ -1,6 +1,6 @@
 package com.github.ricardocomar.testpyramid.microservice.book.usecase;
 
-public interface DeleteUserGateway {
+public interface BookDeleteGateway {
 
 	void delete(long id);
 

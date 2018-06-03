@@ -5,11 +5,11 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.github.ricardocomar.testpyramid.microservice.book.repository.BookRepository;
-import com.github.ricardocomar.testpyramid.microservice.book.usecase.DeleteUserGateway;
+import com.github.ricardocomar.testpyramid.microservice.book.usecase.BookDeleteGateway;
 
 @Component
 @Transactional
-public class DeleteUserDataProvider implements DeleteUserGateway {
+public class BookDeleteDataProvider implements BookDeleteGateway {
 
 	@Autowired
 	private BookRepository bookRepository;

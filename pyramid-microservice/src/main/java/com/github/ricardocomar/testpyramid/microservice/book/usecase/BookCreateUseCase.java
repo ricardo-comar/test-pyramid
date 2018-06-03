@@ -12,10 +12,10 @@ import lombok.AllArgsConstructor;
 public class BookCreateUseCase {
 
 	@Autowired
-	private CreateUserGateway createUserGateway;
+	private BookCreateGateway createGateway;
 
 	public Book create(Book book) {
-		return createUserGateway.save(book);
+		return createGateway.save(book);
 	}
 
 }
