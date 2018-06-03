@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.github.ricardocomar.testpyramid.frontend.client.model.BookPojo;
 
+import feign.Headers;
+
 @FeignClient(url = "http://localhost:8090/api/book", value = "bookClient")
 public interface BookService {
 
@@ -19,6 +21,7 @@ public interface BookService {
 	public ResponseEntity<BookPojo> create(@RequestBody BookPojo book);
 
 	@RequestMapping(value = "{id}", method = RequestMethod.GET)
+	@Headers("Content-Type: application/json;charset=UTF-8")
 	public BookPojo find(@PathVariable("id") long id);
 
 	@RequestMapping(method = RequestMethod.GET)
