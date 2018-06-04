@@ -26,7 +26,9 @@ import com.github.ricardocomar.testpyramid.frontend.model.Book;
 @ContextConfiguration(classes = { EntrypointConfiguration.class })
 @DirtiesContext
 @SpringBootTest(classes = PyramidFrontEndApplication.class)
-@AutoConfigureStubRunner(ids = {"com.github.ricardocomar.testpyramid.microservice:pyramid-microservice:+:stubs:8090"}, stubsMode = StubRunnerProperties.StubsMode.LOCAL)
+@AutoConfigureStubRunner(stubsMode = StubRunnerProperties.StubsMode.REMOTE,
+repositoryRoot = "git://https://github.com/mycelo/contract_git.git",
+ids = { "com.github.ricardocomar.testpyramid.microservice:pyramid-microservice:0.0.1-SNAPSHOT:stubs:8090"})
 
 @ActiveProfiles("entrypoint")
 public class BookCreateEntrypointSCCTest {

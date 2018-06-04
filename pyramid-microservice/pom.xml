@@ -129,7 +129,6 @@
 				<!-- Don't forget about this value !! -->
 				<extensions>true</extensions>
 				<configuration>
-					
 					<!-- We want to pick contracts from a Git repository -->
 					<contractsRepositoryUrl>git://https://github.com/mycelo/contract_git.git</contractsRepositoryUrl>
 					<!-- Example of URL via git protocol -->
@@ -145,7 +144,7 @@
 						<version>${project.version}</version>
 					</contractDependency>
 					<!-- The mode can't be classpath -->
-					<contractsMode>LOCAL</contractsMode>
+					<contractsMode>REMOTE</contractsMode>
 					<!-- Provide the base class for your auto-generated tests -->
 					<baseClassForTests>com.github.ricardocomar.testpyramid.microservice.contract.ContractBaseTest</baseClassForTests>
 				</configuration>
@@ -153,12 +152,12 @@
 					<execution>
 						<phase>package</phase>
 						<goals>
-							<!-- By default we will not push the stubs back to SCM, you have to 
-								explicitly add it as a goal -->
+							<!-- By default we will not push the stubs back to SCM,
+							you have to explicitly add it as a goal -->
 							<goal>pushStubsToScm</goal>
 						</goals>
 					</execution>
-				</executions>
+				</executions>				
 			</plugin>
 		</plugins>
 
