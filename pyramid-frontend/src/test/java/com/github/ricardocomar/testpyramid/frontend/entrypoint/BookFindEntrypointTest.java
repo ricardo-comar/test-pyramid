@@ -26,7 +26,7 @@ import com.github.ricardocomar.testpyramid.frontend.model.Book;
 @ContextConfiguration(classes = { EntrypointConfiguration.class })
 @DirtiesContext
 @SpringBootTest(classes = PyramidFrontEndApplication.class)
-@AutoConfigureStubRunner(ids = {"com.github.ricardocomar.testpyramid.microservice:pyramid-microservice:+:stubs:8090"}, stubsMode = StubRunnerProperties.StubsMode.LOCAL)
+@AutoConfigureStubRunner(ids = {"com.github.ricardocomar.testpyramid.microservice:pyramid-microservice:${spring-cloud-contract.version}:stubs:8090"}, stubsMode = StubRunnerProperties.StubsMode.LOCAL)
 @ActiveProfiles("entrypoint")
 public class BookFindEntrypointTest {
 
