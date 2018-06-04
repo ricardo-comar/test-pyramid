@@ -35,7 +35,7 @@ public class BookFindUseCase {
 				.collect(Collectors.toList());
 	}
 	
-	public Book errorFindPage(Integer first, Integer maxResult) {
+	public List<Book> errorFindPage(Integer first, Integer maxResult) {
 		return null;
 	}
 	
