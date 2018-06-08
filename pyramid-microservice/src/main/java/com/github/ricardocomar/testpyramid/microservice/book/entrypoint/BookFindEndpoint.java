@@ -3,6 +3,7 @@ package com.github.ricardocomar.testpyramid.microservice.book.entrypoint;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -20,8 +21,13 @@ public class BookFindEndpoint {
 	private BookFindUseCase bookAction;
 
 	@RequestMapping(value = "{id}", method = RequestMethod.GET)
-	public Book find(@PathVariable long id) {
-		return bookAction.find(id);
+	public ResponseEntity<Book> find(@PathVariable long id) {
+		Book found = bookAction.find(id);
+		if (found == null) {
+			return ResponseEntity.notFound().build();
+		}
+		
+		return ResponseEntity.ok(found);
 	}
 
 	@RequestMapping(method = RequestMethod.GET)

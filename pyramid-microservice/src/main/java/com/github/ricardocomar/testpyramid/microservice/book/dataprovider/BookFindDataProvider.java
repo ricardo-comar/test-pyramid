@@ -32,7 +32,7 @@ public class BookFindDataProvider implements BookFindGateway {
 	@Override
 	public Book find(long id) {
 		Optional<BookEntity> optional = bookRepository.findById(id);
-		return BookEntityMapper.from(optional.get());
+		return BookEntityMapper.from(optional.orElse(null));
 	}
 
 }

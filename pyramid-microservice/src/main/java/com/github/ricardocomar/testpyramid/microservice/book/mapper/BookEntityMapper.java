@@ -6,7 +6,7 @@ import com.github.ricardocomar.testpyramid.microservice.book.repository.entity.B
 public class BookEntityMapper {
 	
 	public static BookEntity from(Book book) {
-		return
+		return (book == null) ? null : 
 				BookEntity.builder()
 					.id(book.getId())
 					.name(book.getName())
@@ -16,7 +16,7 @@ public class BookEntityMapper {
 	}
 
 	public static Book from(BookEntity entity) {
-		return
+		return (entity == null) ? null : 
 				Book.builder()
 					.id(entity.getId())
 					.name(entity.getName())
