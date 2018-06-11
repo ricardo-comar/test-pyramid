@@ -2,6 +2,7 @@ package com.github.ricardocomar.testpyramid.microservice.book.usecase;
 
 import org.hamcrest.Matchers;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
@@ -16,7 +17,6 @@ import com.github.ricardocomar.testpyramid.microservice.PyramidMicroserviceAppli
 import com.github.ricardocomar.testpyramid.microservice.book.model.Book;
 
 @RunWith(SpringRunner.class)
-@ContextConfiguration(classes = {UseCaseConfiguration.class})
 @DirtiesContext
 @SpringBootTest(classes = PyramidMicroserviceApplication.class)
 @ActiveProfiles("usecase")
